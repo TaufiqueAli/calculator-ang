@@ -1,0 +1,55 @@
+<div class="container_main">
+    <div class="calculator_cont">
+        <div class="cal_display">
+            <input [(ngModel)]="enterValue" (ngModelChange)="onInputChange($event)" type="text" readonly>
+            <div class="result_box">
+                {{finalResult}}
+            </div>
+            <div class="tools_section d-flex w-100">
+                <div class="d-flex">
+                    <img src="assets/images/TimeMachine.png" alt="time machine">
+                    <img src="assets/images/Ruler.png" alt="ruler">
+                    <img src="assets/images/Root.png" alt="root">
+                </div>
+                <img src="assets/images/Backspace.png" alt="time machine">
+            </div>
+        </div>
+        <div class="cal_keypard">
+            <div class="action_symbol top_button">
+                <button class="key_btn" (click)="clearInput()">C</button>
+                <button class="key_btn" (click)="onInputChange('&#40;')">()</button>
+                <button class="key_btn" (click)="onInputChange('%')">%</button>
+                <button class="key_btn" (click)="onInputChange('÷')">÷</button>
+                <button class="key_btn" (click)="onInputChange('Back')">AC</button>
+            </div>
+            <div>
+                <button class="key_btn" (click)="onInputChange('7')">7</button>
+                <button class="key_btn" (click)="onInputChange('8')">8</button>
+                <button class="key_btn" (click)="onInputChange('9')">9</button>
+                <button class="key_btn" (click)="onInputChange('x')">x</button>
+            </div>
+            <div>
+                <button class="key_btn" (click)="onInputChange('4')">4</button>
+                <button class="key_btn" (click)="onInputChange('5')">5</button>
+                <button class="key_btn" (click)="onInputChange('6')">6</button>
+                <button class="key_btn" (click)="onInputChange('-')">-</button>
+            </div>
+            <div>
+                <button class="key_btn" (click)="onInputChange('1')">1</button>
+                <button class="key_btn" (click)="onInputChange('2')">2</button>
+                <button class="key_btn" (click)="onInputChange('3')">3</button>
+                <button class="key_btn" (click)="onInputChange('+')">+</button>
+            </div>
+            <div>
+                <!-- <button class="key_btn" (click)="onInputChange('+/-')">+/-</button> -->
+                <button class="key_btn" (click)="onInputChange('0')">0</button>
+                <button class="key_btn" (click)="onInputChange('.')">.</button>
+                <button class="key_btn" (click)="onInputChange('Back')">
+                    <img src="assets/images/delete.png" alt="delete">
+                </button>
+                <button class="key_btn" (click)="calculateResult()">=</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
