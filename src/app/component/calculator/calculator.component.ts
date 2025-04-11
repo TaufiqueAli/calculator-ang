@@ -5,7 +5,7 @@ import { evaluate } from 'mathjs';
 
 @Component({
   selector: 'app-calculator',
-  standalone: true, // ✅ this is the missing piece
+  standalone: true,
   imports: [FormsModule],
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.css'
@@ -58,7 +58,6 @@ export class CalculatorComponent {
   
       const result = evaluate(expression);
   
-      // Round and clean trailing zeros
       this.finalResult = parseFloat(result)
         .toFixed(4)
         .replace(/\.?0+$/, '')
