@@ -1,0 +1,30 @@
+<main class="px-2" (click)="onClick($event)">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam provident veritatis nobis, officia quasi laborum accusantium harum ipsam? Ducimus porro ipsam vero laborum reprehenderit nobis voluptas deserunt omnis qui iusto.
+
+    <div 
+        class="firstCircle"
+        [ngStyle]="{
+        display:firstCircleRadius  === 0 ? 'none' : 'block',
+        top: cursorY + 'px',
+        left: cursorX + 'px',
+        width: firstCircleRadius+ 'px',
+        height: firstCircleRadius+'px',
+        borderColor:'blue'
+    }">
+
+    </div>
+    <div 
+        class="firstCircle"
+        [ngStyle]="{
+        display:secondCircleRadius  === 0 ? 'none' : 'block',
+        top: secondCursorX + 'px',
+        left: secondCursorY + 'px',
+        width: secondCircleRadius+ 'px',
+        height: secondCircleRadius+'px'
+    }">
+
+    </div>
+    <p>Radius 1: {{firstCircleRadius}}</p>
+    <p>Radius 2: {{secondCircleRadius}}</p>
+
+</main>

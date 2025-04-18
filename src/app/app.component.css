@@ -3,3 +3,14 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+nav{
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: unset;
+}

@@ -1,1 +1,12 @@
-<router-outlet />
+<section class="py-2 bg-dark">
+    <nav class="px-2">
+        <ul class="d-flex gap-4">
+            <li><a routerLink="/cirlce-generate" routerLinkActive="active" ariaCurrentWhenActive="page">Circle Generator</a></li>
+            <li><a routerLink="/calculator" routerLinkActive="active" ariaCurrentWhenActive="page">Calculator</a></li>
+        </ul>
+    </nav>
+</section>
+<!-- The routed views render in the <router-outlet>-->
+<div class="container-fluid">
+    <router-outlet/>
+</div>
