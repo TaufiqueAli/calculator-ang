@@ -1,12 +1,15 @@
-<section class="py-2 bg-dark">
+<section class="py-2 bg-dark nav_wapper">
     <nav class="px-2">
-        <ul class="d-flex gap-4">
-            <li><a routerLink="/cirlce-generate" routerLinkActive="active" ariaCurrentWhenActive="page">Circle Generator</a></li>
+        <ul routerLinkActive="active-link" class="d-flex gap-4">
+            <li><a routerLink="/cirlce-generate" routerLinkActive="active" ariaCurrentWhenActive="page" >Circle Generator</a></li>
             <li><a routerLink="/calculator" routerLinkActive="active" ariaCurrentWhenActive="page">Calculator</a></li>
+            <li><a routerLink="/parent" routerLinkActive="active" ariaCurrentWhenActive="page">Parent</a></li>
+            <li><a routerLink="/child" routerLinkActive="active" ariaCurrentWhenActive="page">Child</a></li>
+            <li><a routerLink="/text-utility" routerLinkActive="active" ariaCurrentWhenActive="page">Text Utility</a></li>
         </ul>
     </nav>
 </section>
 <!-- The routed views render in the <router-outlet>-->
-<div class="container-fluid">
+<div class="container-fluid outlet-wrapper">
     <router-outlet/>
 </div>

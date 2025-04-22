@@ -60,3 +60,11 @@ export class CircleGenerateComponent {
     this.count = 0;
   }
 }
+
+export class cirlceMethos extends CircleGenerateComponent{
+  public welcom:string = "Welcom Bro..."
+
+  public greeting():void{
+    console.log("Gretting ma'am...")
+  }
+}

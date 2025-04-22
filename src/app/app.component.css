@@ -4,13 +4,25 @@
     box-sizing: border-box;
 }
 
-nav{
-}
-
-li{
-    list-style-type: none;
-}
-
 a{
     text-decoration: unset;
+}
+
+.nav_wapper{
+    position:sticky;
+    top: 0px;
+}
+
+.active-link .active:hover{
+    color: #fff;
+}
+
+.active{
+    color: #fff;
+}
+
+.outlet-wrapper{
+    padding: 1rem 1rem;
+    background-color: #00000080;
+    height: 100vh;
 }
