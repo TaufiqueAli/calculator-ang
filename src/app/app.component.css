@@ -24,5 +24,7 @@ a{
 .outlet-wrapper{
     padding: 1rem 1rem;
     background-color: #00000080;
-    height: 100vh;
+    /* min-height: 100vh; */
+    min-height:100vh;
+    max-height: fit-content;
 }
