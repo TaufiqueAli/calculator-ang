@@ -108,15 +108,31 @@ export class TextUtilityComponent {
     this.leastOccurenceWord = least;
     this.mostTimesOcc = max;
     this.leastTimesOcc = min;
+    this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(this.showText);
+
   }
+
+  highlightWords(text: string, most: string, least: string): string {
+    const regex = new RegExp(`\\b(${most}|${least})\\b`, 'gi');
+    return text.replace(regex, (match) => {
+      const isMost = match.toLowerCase() === most.toLowerCase();
+      const color = isMost ? 'yellow' : 'lightblue';
+      const style = isMost ? 'font-weight: bold;' : '';
+      return `<span style="background-color: ${color}; ${style}">${match}</span>`;
+    });
+  }
+  
 
   generateReport(): void {
     this.updateWordFrequency();
     this.updateSentenceCount();
     this.updateCharacterCount();
     this.updateWordCount();
-    this.showText = this.textCollection;
+  
+    this.showText = this.highlightWords(this.textCollection, this.mostOccurenceWord, this.leastOccurenceWord);
+    this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(this.showText);
   }
+  
 
   letterCaseChange(type: string): void {
     switch (type) {

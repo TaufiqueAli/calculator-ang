@@ -13,7 +13,7 @@
         [(ngModel)]="textCollection"
         (ngModelChange)="handleInputChange($event)"
         class="form-control bg-transparent"
-        rows="5"
+        rows="7"
         aria-label="Text Input">
       </textarea>
     </section>
@@ -53,7 +53,7 @@
           </li>
           <li>
             <strong>Least Frequent Word:</strong>
-            <span class="px-2 bg-warning text-dark text-capitalize">"{{ leastOccurenceWord }}" - {{ leastTimesOcc }}</span>
+            <span class="px-2 bg-info text-dark text-capitalize">"{{ leastOccurenceWord }}" - {{ leastTimesOcc }}</span>
           </li>
         </ul>
         <hr>
@@ -63,7 +63,7 @@
     <!-- Output/Preview Section -->
     <section class="mt-3">
       <!-- You can switch to [innerHTML]="safeHtml" for highlighted output -->
-      <pre>{{ stripHtml(showText) }}</pre>
+      <div [innerHTML]="safeHtml"></div>
     </section>
   
   </main>
