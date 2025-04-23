@@ -1,45 +1,70 @@
+<main class="container-fluid py-3">
 
-<main class="container-fluid">
-<div class="form-group">
-  <label for="exampleFormControlTextarea1">Enter Text:</label>
-  <textarea 
-      [(ngModel)]="textCollection" 
-      (ngModelChange)="handleInputChange($event)"
-      class="form-control bg-transparent" 
-      id="exampleFormControlTextarea1" 
-      rows="3">
-  </textarea>
-</div>
-
-<h1 class="fs-4 fw-bold mt-3">Basic Utilities</h1>
-<div class="w-100 d-flex gap-2 mb-3">
-    <button type="button" class="btn btn-primary" (click)="letterCaseChange('capitalize')">Capitalize</button>
-    <button type="button" class="btn btn-success" (click)="letterCaseChange('lower')">Lowercase</button>
-    <button type="button" class="btn btn-warning" (click)="letterCaseChange('capital')">Uppercase</button>
-    <button type="button" class="btn btn-info" (click)="removeExtraSpace()">Remove Extra Space</button>
-    <button type="button" class="btn btn-danger" (click)="clearText()">ClearText</button>
-</div>
-<h1 class="fs-4 fw-bold mt-3">Text Analysis</h1>
-<div class="w-100 d-flex gap-2 mb-3">
-     <button type="button" class="btn btn-primary" (click)="generateReport()">Generate Report:</button>
-</div>
-<div *ngIf="wordCount > 0" class="mb-3">
-    <h3>Report:</h3>
-    <p>Total Words: {{wordCount}}</p>
-    <p>Total Charecters: {{charCount}}</p>
-    <p>Total Sentences: {{sentencesCount}}</p>
-    <p>Maximum Friquency Word: <span class="px-2 text-capitalize" style="background-color: yellow;">"{{mostOccurenceWord}}" - {{mostTimesOcc}}</span> </p>
-    <p>Minumum Friquency Word: <span class="px-2 text-capitalize" style="background-color: yellow;">"{{leastOccurenceWord}}" - {{leastTimesOcc}}</span></p>
-    <hr>
-</div>
-
-<div>
-    {{stripHtml(showText)}}
-    <!-- {{showText}} -->
-    <!-- <div [innerHTML]="safeHtml"></div> -->
-
-
-</div>
-
-</main>
-  <!-- <textarea class="w-100" name="utility" id="utility" rows="10"></textarea> -->
+    <!-- Text Input Section -->
+    <section class="form-group">
+      <div class="d-flex justify-content-between mb-2 align-items-center">
+        <label for="textInput">Enter Text:</label>
+        <button type="button" class="btn btn-light bg-transparent py-1" (click)="triggerFileInput()">Import File</button>
+        <input type="file" id="importFile" name="importFile" class="d-none" #fileInput (change)="handleFileInput($event)">
+      </div>
+  
+      <textarea
+        id="textInput"
+        [(ngModel)]="textCollection"
+        (ngModelChange)="handleInputChange($event)"
+        class="form-control bg-transparent"
+        rows="5"
+        aria-label="Text Input">
+      </textarea>
+    </section>
+  
+    <!-- Utilities Section -->
+    <section>
+      <header class="fs-4 fw-bold mt-4 mb-2">Basic Utilities</header>
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <button class="btn btn-primary" (click)="letterCaseChange('capitalize')">Capitalize</button>
+        <button class="btn btn-success" (click)="letterCaseChange('lower')">Lowercase</button>
+        <button class="btn btn-warning" (click)="letterCaseChange('capital')">Uppercase</button>
+        <button class="btn btn-info" (click)="removeExtraSpace()">Remove Extra Space</button>
+        <button class="btn btn-danger" (click)="clearText()">Clear Text</button>
+        <button class="btn btn-dark d-flex align-items-center" (click)="copyText()" aria-label="Copy Text">
+          <mat-icon>content_copy</mat-icon>
+        </button>
+        <button class="btn btn-secondary d-flex align-items-center" (click)="exportText()" aria-label="Download Text">
+          <mat-icon>download</mat-icon>
+        </button>
+      </div>
+    </section>
+  
+    <!-- Analysis Section -->
+    <section>
+      <header class="fs-4 fw-bold mt-4 mb-2">Text Analysis</header>
+      <button class="btn btn-primary mb-3" (click)="generateReport()">Generate Report</button>
+  
+      <div *ngIf="wordCount > 0">
+        <h5>Report:</h5>
+        <ul class="list-unstyled">
+          <li><strong>Total Words:</strong> {{ wordCount }}</li>
+          <li><strong>Total Characters:</strong> {{ charCount }}</li>
+          <li><strong>Total Sentences:</strong> {{ sentencesCount }}</li>
+          <li>
+            <strong>Most Frequent Word:</strong>
+            <span class="px-2 bg-warning text-dark text-capitalize">"{{ mostOccurenceWord }}" - {{ mostTimesOcc }}</span>
+          </li>
+          <li>
+            <strong>Least Frequent Word:</strong>
+            <span class="px-2 bg-warning text-dark text-capitalize">"{{ leastOccurenceWord }}" - {{ leastTimesOcc }}</span>
+          </li>
+        </ul>
+        <hr>
+      </div>
+    </section>
+  
+    <!-- Output/Preview Section -->
+    <section class="mt-3">
+      <!-- You can switch to [innerHTML]="safeHtml" for highlighted output -->
+      <pre>{{ stripHtml(showText) }}</pre>
+    </section>
+  
+  </main>
+  
